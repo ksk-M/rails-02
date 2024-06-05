@@ -13,7 +13,7 @@
   <body>
     <header>
       <div class="header-wrapper">
-        <h3 class="title">Potepan Share</h3>
+        <%= link_to "Potepan Travel", "/", class: "title" %>
         <div class="header-link">
           <% if user_signed_in? %>  <%# サインイン時にtrue、サインアウト時はfalseを返すメソッド。ビューでcurrrent_userを使う際、ログインしていない場合はエラーになってしまうので、このメソッドで条件分岐をする必要がある。 %>
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？"}, class: "h-link sign-out-link" %>
@@ -36,7 +36,7 @@
     <%= yield %>
 
     <footer>
-
+        <%= link_to "Potepan Travel", "/", class: "title" %>
     </footer>
   </body>
 </html>

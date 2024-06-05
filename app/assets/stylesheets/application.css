@@ -1,6 +1,10 @@
 body {
   margin: 0;
   background-color: rgb(236, 236, 236);
+  /* footer最下部に固定*/
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 a {
@@ -26,13 +30,13 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: rgba(0, 0, 84, 0.838);
+  background-color: rgba(0, 0, 51, 0.838);
 }
 
 .title {
+  font-size: 33px;
   color: #fff;
-  margin-left: 30px;
-  /* padding: 5px 0; */
+  margin: 10px 0 10px 30px;
 }
 
 .h-link {
@@ -42,4 +46,31 @@ a {
 
 .sign-in-link {
   margin-right: 10px;
+}
+
+footer {
+  width: 100%;
+  height: 150px;
+  background-color: rgba(0, 0, 51, 0.838);
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+}
+
+/* top */
+.first-view {
+  text-align: center;
+  background-image: url('beach.jpeg');
+  background-size: cover;
+  height: 100vh;
+}
+
+.first-view-title {
+  font-size: 50px;
+  color: #fff;
+  margin: 100px 0 50px;
+}
+
+.first-view-title span {
+  font-size: 38px;
 }
