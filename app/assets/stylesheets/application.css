@@ -12,6 +12,10 @@ a {
   border-radius: 5px;
 }
 
+li {
+  list-style: none;
+}
+
 .notice {
   position: fixed;
   bottom: 30px;
@@ -73,4 +77,78 @@ footer {
 
 .first-view-title span {
   font-size: 38px;
+}
+
+/* registrations-new */
+#form-wrapper {
+  margin: 0 auto;
+}
+
+#form {
+  background-color: #fff;
+  width: fit-content;
+  padding: 20px 20px;
+  margin: 0 auto 20px;
+}
+
+.field {
+  margin-bottom: 20px;
+}
+
+input {
+  padding: 4px 8px;
+  font-size: 18px;
+  width: 30vw;
+}
+
+.check-box {
+  width: fit-content;
+}
+
+.actions {
+  display: flex;
+  justify-content: right;
+}
+
+.btn {
+  width: 33%;
+}
+
+.edit-link {
+  color: navy;
+}
+
+/* shared#_settings */
+.settings-container {
+  width: 25vw;
+  margin: 10px;
+}
+
+.settings {
+  font-size: 18px;
+  padding: 0;
+}
+
+.settings li {
+  border: solid 1px;
+  border-bottom: none;
+  padding: 20px;
+}
+
+.settings li:last-child {
+  border-bottom: solid 1px;
+}
+
+/* users#show */
+.account-wrapper {
+  display: flex;
+}
+
+.account-container {
+  margin: 20px;
+}
+
+.account-title {
+  display: flex;
+  justify-content: space-around;
 }
