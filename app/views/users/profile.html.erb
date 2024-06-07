@@ -1,0 +1,16 @@
+<h1>users#profile</h1>
+
+<div class="account-wrapper">
+  <%= render "shared/settings" %>
+
+  <div class="account-container">
+    <div class="account-title">
+      <h2>プロフィール情報</h2>
+      <%= link_to "編集", profile_edit_path, class: "edit-link" %>
+    </div>
+    <h4>名前</h4>
+    <%= @user.name %>
+    <h4>自己紹介</h4>
+    <%= @user.introduction %>
+  </div>
+</div>

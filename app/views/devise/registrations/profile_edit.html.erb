@@ -1,0 +1,29 @@
+<div id="form-wrapper">
+  <h2>プロフィール編集</h2>
+
+  <%= form_for current_user, url: {action: 'profile_update'} do |f| %>
+
+    <div id="form">
+      <%# <div class="field"> %>
+        <%# <%= f.label :current_password %><br /> %>
+        <%# <%= f.password_field :current_password, autocomplete: "current-password" %> %>
+      <%# </div> %>
+
+      <div class="field">
+        <%= f.label :name %><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :introduction %><br />
+        <%= f.text_field :introduction %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "保存", class: 'btn' %>
+      </div>
+
+      <%= link_to "キャンセル", :back %>
+    </div>
+  <% end %>
+</div>

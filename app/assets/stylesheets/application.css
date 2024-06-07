@@ -16,9 +16,9 @@ li {
   list-style: none;
 }
 
-.notice {
+.alert {
   position: fixed;
-  bottom: 30px;
+  bottom: 175px;
   left: 0;
   right: 0;
   color: #fff;
@@ -28,6 +28,10 @@ li {
   padding: 10px 24px;
   margin: 0 auto;
   width: fit-content;
+}
+
+.alert-danger {
+  background-color: #f91f1f;
 }
 
 .header-wrapper {
@@ -46,10 +50,6 @@ li {
 .h-link {
   color: #fff;
   margin: 30px;
-}
-
-.sign-in-link {
-  margin-right: 10px;
 }
 
 footer {
@@ -116,12 +116,14 @@ input {
 
 .edit-link {
   color: navy;
+  font-size: 22px;
+  margin: auto 15px;
 }
 
 /* shared#_settings */
 .settings-container {
-  width: 25vw;
-  margin: 10px;
+  width: 20vw;
+  margin: 20px;
 }
 
 .settings {
@@ -130,25 +132,28 @@ input {
 }
 
 .settings li {
-  border: solid 1px;
+  border: solid 1px gray;
   border-bottom: none;
   padding: 20px;
 }
 
 .settings li:last-child {
-  border-bottom: solid 1px;
+  border-bottom: solid 1px gray;
 }
 
 /* users#show */
 .account-wrapper {
   display: flex;
+  margin-top: 30px;
 }
 
 .account-container {
-  margin: 20px;
+  width: 55vw;
+  margin: 20px 50px;
 }
 
 .account-title {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  border-bottom: solid 1px gray;
 }

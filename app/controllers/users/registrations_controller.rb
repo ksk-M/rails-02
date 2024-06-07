@@ -38,7 +38,23 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+    # プロフィール編集用アクション
+  def profile_edit    
+  end
+
+  def profile_update
+    current_user.assign_attributes(account_update_params)
+    if current_user.save
+      flash[:notice] = "プロフィールを変更しました"
+      redirect_to :users_profile
+    else
+      flash.now[:notice] = "プロフィールの変更に失敗しました"
+      render "profile_edit"
+    end
+  end
+
+
+  protected
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
@@ -59,4 +75,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+  
+  # アカウント編集後のリダイレクト先をトップページから変更
+  def after_update_path_for(resource)
+    users_show_path
+  end
+
 end

@@ -16,18 +16,18 @@
         <%= link_to "Potepan Travel", "/", class: "title" %>
         <div class="header-link">
           <% if user_signed_in? %>  <%# サインイン時にtrue、サインアウト時はfalseを返すメソッド。ビューでcurrrent_userを使う際、ログインしていない場合はエラーになってしまうので、このメソッドで条件分岐をする必要がある。 %>
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？"}, class: "h-link sign-out-link" %>
-            <%= link_to "アカウント設定", users_show_path, class: "h-link account-link" %>
+            <%= link_to "アカウント設定", users_show_path, class: "h-link" %>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？"}, class: "h-link" %>
           <% else %>
-            <%= link_to "ログイン", new_user_session_path, class: "h-link sign-in-link" %>
-            <%= link_to "新規登録", new_user_registration_path, class: "h-link sign-up-link" %>
+            <%= link_to "ログイン", new_user_session_path, class: "h-link" %>
+            <%= link_to "新規登録", new_user_registration_path, class: "h-link" %>
           <% end %>
         </div>
       </div>
     </header>
 
       <% if notice %>
-        <p class="alert alert-success"><%= notice %></p>
+        <p class="alert"><%= notice %></p>
       <% end %>
       <% if alert %>
         <p class="alert alert-danger"><%= alert %></p>
