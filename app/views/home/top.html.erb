@@ -9,15 +9,28 @@
   </div>
 </div>
 
-<div class="container">
+<div class="recommend-area-wrapper">
   <h2 class="recommend-area-title">おすすめのエリア</h2>
   
-  <div class="recommend-area-section">
-    <ul>
-      <li>東京</li>
-      <li>大阪</li>
-      <li>京都</li>
-      <li>札幌</li>
-    </ul>
-  </div>
+  <ul class="recommend-area-container">
+    <li class="recommend-area">
+      <div>東京</div>
+      <%= image_tag 'tokyo.jpeg', class: 'img' %>
+    </li>
+
+    <li class="recommend-area">
+      <div>大阪</div>
+      <%= image_tag 'osaka.jpeg', class: 'img' %>
+    </li>
+
+    <li class="recommend-area">
+      <div>京都</div>
+      <%= image_tag 'kyoto.jpeg', class: 'img' %>
+    </li>
+
+    <li class="recommend-area">
+      <div>札幌</div>
+      <%= image_tag 'sapporo.jpeg', class: 'img' %>
+    </li>
+  </ul>
 </div>

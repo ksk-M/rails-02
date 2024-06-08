@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get '/', to: 'home#top'
   get 'users/show'
   get 'users/profile'
+  get 'users', to: 'users#show'
 end
