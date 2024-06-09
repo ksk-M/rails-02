@@ -4,10 +4,10 @@
   <%= form_for current_user, url: {action: 'profile_update'} do |f| %>
 
     <div id="form">
-      <%# <div class="field"> %>
-        <%# <%= f.label :current_password %><br /> %>
-        <%# <%= f.password_field :current_password, autocomplete: "current-password" %> %>
-      <%# </div> %>
+      <div class="field">
+        <%= f.label :image %><br />
+        <%= f.file_field :image %>
+      </div>
 
       <div class="field">
         <%= f.label :name %><br />

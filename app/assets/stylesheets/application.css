@@ -9,7 +9,6 @@ body {
 
 a {
   text-decoration: none;
-  border-radius: 5px;
 }
 
 li {
@@ -47,9 +46,49 @@ li {
   margin: 10px 0 10px 30px;
 }
 
-.h-link {
+.h-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.header-container,
+.header-container a {
   color: #fff;
+  margin: 0 20px;
+}
+
+.h-link {
   margin: 30px;
+}
+
+#user-info {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+#menu {
+  position: absolute;
+  top: 68px;
+  color: #0076d1;
+  /* 後で消す */
+  background-color: #fff;
+  margin: 0;
+  padding: 10px 0 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  /* transition: .3s; */
+}
+
+#menu a {
+  color: #0076d1;
+  font-weight: bold;
+}
+
+.add-none {
+  display: none;
 }
 
 footer {
@@ -186,4 +225,11 @@ input {
   display: flex;
   justify-content: space-between;
   border-bottom: solid 1px gray;
+}
+
+.rounded-cicle {
+  width: 250px;
+  height: 250px;
+  border-radius: 50%;
+  object-fit: cover;
 }

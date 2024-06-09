@@ -3,21 +3,33 @@
   <head>
     <title>TripApp</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%# ネット上で公開されているjQueryを絶対パスで読み込む %>
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script> 
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_pack_tag 'application' %>
   </head>
 
   <body>
     <header>
       <div class="header-wrapper">
         <%= link_to "Potepan Travel", "/", class: "title" %>
-        <div class="header-link">
+        <div class="header-container">
           <% if user_signed_in? %>  <%# サインイン時にtrue、サインアウト時はfalseを返すメソッド。ビューでcurrrent_userを使う際、ログインしていない場合はエラーになってしまうので、このメソッドで条件分岐をする必要がある。 %>
-            <%= link_to "アカウント設定", users_show_path, class: "h-link" %>
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？"}, class: "h-link" %>
+            <div id="user-info">
+              <%= image_tag current_user.image, class: "h-image" %>
+              <div id="user-name"><%= current_user.name %></div>
+            </div>
+            <ul id="menu" class="add-none">
+              <li>施設の新規登録</li>
+              <li>予約済み一覧</li>
+              <li>登録済み一覧</li>
+              <li><%= link_to "アカウント設定", users_show_path %></li>
+              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？"} %></li>
+            </ul>           
           <% else %>
             <%= link_to "ログイン", new_user_session_path, class: "h-link" %>
             <%= link_to "新規登録", new_user_registration_path, class: "h-link" %>

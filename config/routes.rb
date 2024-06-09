@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     patch 'profile_update', to: 'users/registrations#profile_update', as: 'profile_update'
   end
   
-  get '/', to: 'home#top'
+  root to: 'home#top' # トップページへは「root」でルーティング指定
   get 'users/show'
   get 'users/profile'
   get 'users', to: 'users#show'

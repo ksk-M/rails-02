@@ -28,6 +28,7 @@ ja:
         # 後から追加
         name: 名前
         introduction: 自己紹介
+        image: アイコン画像
     models:
       user: ユーザー
   devise:

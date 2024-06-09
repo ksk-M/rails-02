@@ -8,6 +8,8 @@
       <h2>プロフィール情報</h2>
       <%= link_to "編集", profile_edit_path, class: "edit-link" %>
     </div>
+    <h4>アイコン画像</h4>
+    <%= image_tag @user.image, class: "rounded-cicle" %>
     <h4>名前</h4>
     <%= @user.name %>
     <h4>自己紹介</h4>
