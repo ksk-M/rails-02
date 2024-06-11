@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   end
   
   root to: 'home#top' # トップページへは「root」でルーティング指定
+  resources :rooms
   get 'users/show'
   get 'users/profile'
   get 'users', to: 'users#show'

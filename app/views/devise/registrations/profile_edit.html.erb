@@ -1,9 +1,10 @@
-<div id="form-wrapper">
+<div class="form-wrapper">
   <h2>プロフィール編集</h2>
 
   <%= form_for current_user, url: {action: 'profile_update'} do |f| %>
+    <%= render "devise/shared/error_messages", resource: current_user %>
 
-    <div id="form">
+    <div class="form">
       <div class="field">
         <%= f.label :image %><br />
         <%= f.file_field :image %>
@@ -16,7 +17,7 @@
 
       <div class="field">
         <%= f.label :introduction %><br />
-        <%= f.text_field :introduction %>
+        <%= f.text_area :introduction %>
       </div>
 
       <div class="actions">

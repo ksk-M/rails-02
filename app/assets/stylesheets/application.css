@@ -15,7 +15,8 @@ li {
   list-style: none;
 }
 
-.alert {
+.alert,
+.notice {
   position: fixed;
   bottom: 175px;
   left: 0;
@@ -28,6 +29,21 @@ li {
   margin: 0 auto;
   width: fit-content;
 }
+
+.failure-notice {
+  position: fixed;
+  bottom: 30px;
+  left: 0;
+  right: 0;
+  padding: 10px 24px;
+  margin: 0 auto;
+  color: #fff;
+  background-color: #f91f1f;
+  border-radius: 4px;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, .3);
+  width: fit-content;
+}
+
 
 .alert-danger {
   background-color: #f91f1f;
@@ -57,7 +73,7 @@ li {
 .header-container,
 .header-container a {
   color: #fff;
-  margin: 0 20px;
+  margin: 0 30px;
 }
 
 .h-link {
@@ -68,23 +84,27 @@ li {
   display: flex;
   align-items: center;
   cursor: pointer;
+  font-size: 19px;
 }
 
 #menu {
   position: absolute;
   top: 68px;
-  color: #0076d1;
-  /* 後で消す */
+  color: #000;
+  /* color後で消す */
   background-color: #fff;
   margin: 0;
   padding: 10px 0 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  /* transition: .3s; */
+  width: 170px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  text-align: center;
 }
 
 #menu a {
+  display: inline-block;
   color: #0076d1;
   font-weight: bold;
+  margin: 2px 0;
 }
 
 .add-none {
@@ -149,13 +169,14 @@ footer {
 }
 
 /* registrations-new */
-#form-wrapper {
+.form-wrapper {
   margin: 0 auto;
+  width: 50%;
+  max-width: 500px;
 }
 
-#form {
+.form {
   background-color: #fff;
-  width: fit-content;
   padding: 20px 20px;
   margin: 0 auto 20px;
 }
@@ -164,10 +185,12 @@ footer {
   margin-bottom: 20px;
 }
 
-input {
-  padding: 4px 8px;
-  font-size: 18px;
-  width: 30vw;
+input,
+textarea {
+  padding: 6px 8px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .check-box {
@@ -228,8 +251,89 @@ input {
 }
 
 .rounded-cicle {
-  width: 250px;
-  height: 250px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   object-fit: cover;
+}
+
+/* rooms#index */
+.own-rooms-container {
+  margin: 10px;
+}
+
+.own-rooms-container h2 {
+  margin-left: 10px;
+}
+
+.index-room-img {
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.room-index {
+  border-collapse: collapse;
+  /* 隣接セルの境界線同士を間を空けず重ねて表示 */
+}
+
+.room-index thead {
+  border-bottom: solid 1px #000;
+}
+
+.room-index td {
+  padding: 10px;
+}
+
+.room-index td:nth-child(2),
+td:nth-child(6) {
+  /* width: 0; */
+  /* 下記と組み合わせて最小幅に */
+  white-space: nowrap;
+  /* 文字列を折り返さない */
+}
+
+
+/* rooms#show */
+.room-detail-container {
+  padding: 30px;
+}
+
+.room-detail-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.room-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.room-img {
+  width: 40%;
+  object-fit: contain;
+}
+
+.room-datail-body {
+  width: 50%;
+  padding: 25px;
+  background-color: #eedccb;
+}
+
+.name-and-charge {
+  display: flex;
+  justify-content: space-between;
+  font-size: 25px;
+  color: rgb(110, 108, 108);
+}
+
+.name-and-charge p:last-child {
+  color: #f76140;
+}
+
+.address {
+  margin: -15px 0 25px;
+  color: rgb(110, 108, 108);
 }

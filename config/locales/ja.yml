@@ -29,8 +29,15 @@ ja:
         name: 名前
         introduction: 自己紹介
         image: アイコン画像
+      room:
+        name: 施設名
+        introduction: 施設詳細
+        charge: 料金
+        address: 住所
+        image: 施設画像
     models:
       user: ユーザー
+      room: 施設
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。
@@ -145,3 +152,10 @@ ja:
       not_saved:
         one: エラーが発生したため %{resource} は保存されませんでした。
         other: "%{count} 件のエラーが発生したため %{resource} は保存されませんでした。"
+  date:
+    formats:
+      default: '%Y/%m/%d'
+  time:
+    formats:
+      default: '%Y/%m/%d'
+      long: '%Y/%m/%d %H:%M'

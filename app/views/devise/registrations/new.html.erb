@@ -1,31 +1,29 @@
-<div id="form-wrapper">
+<div class="form-wrapper">
   <h2>新規登録</h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
-    <div id="form">
+    <div class="form">
       <div class="field">
         <%= f.label :name %><br />
-        <%= f.text_field :name, autofocus: true %>
+        <%= f.text_field :name, autofocus: true, placeholder: "ユーザー名を入力" %>
       </div>
 
       <div class="field">
         <%= f.label :email %><br />
-        <%= f.email_field :email, autocomplete: "email" %> <%# 「autocomplete」はブラウザの自動補完を支援する %>
+        <%= f.email_field :email, autocomplete: "email", placeholder: "メールアドレスを入力" %>
+        <%# 「autocomplete」はブラウザの自動補完を支援する %>
       </div>
 
       <div class="field">
         <%= f.label :password %>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> 文字以上)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "new-password" %>
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: "#{@minimum_password_length}文字以上" %>
       </div>
 
       <div class="field">
         <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "#{@minimum_password_length}文字以上" %>
       </div>
 
       <div class="actions">

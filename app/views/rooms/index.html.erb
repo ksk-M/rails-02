@@ -1,0 +1,35 @@
+<div class="own-rooms-container">
+  <h2>登録施設一覧</h2>
+
+  <table class="room-index">
+    <thead>
+      <tr>
+        <th>画像</th>
+        <th>施設名</th>
+        <th>紹介文</th>
+        <th>料金</th>
+        <th>作成日</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @rooms.each do |room| %>
+        <tr>
+          <td>
+            <% if room.image.attached? %>
+              <%= image_tag room.image, class: "index-room-img" %>
+            <% else %>
+              <%= image_tag 'default-room.png', class: "index-room-img" %>
+            <% end %>
+          </td>
+          <td><%= link_to room.name, room_path(room) %></td>
+          <td><%= room.introduction %></td>
+          <td><%= "¥#{room.charge}~" %></td>
+          <td><%= l room.created_at %></td>
+          <%# lメソッドは日付や数値などをlocale(ja.yml)に指定されているフォーマットに変換する。ロングバージョンは以下の記述で可能 %>
+          <%# <td><%= l room.created_at, format: :long</td> %> %>
+          <td><%= link_to "削除", room, method: :delete, data: { confirm: "「#{room.name}」を削除しますか？\nこの操作は取消できません。" } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

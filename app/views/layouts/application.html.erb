@@ -18,15 +18,21 @@
       <div class="header-wrapper">
         <%= link_to "Potepan Travel", "/", class: "title" %>
         <div class="header-container">
-          <% if user_signed_in? %>  <%# サインイン時にtrue、サインアウト時はfalseを返すメソッド。ビューでcurrrent_userを使う際、ログインしていない場合はエラーになってしまうので、このメソッドで条件分岐をする必要がある。 %>
+          <% if user_signed_in? %>  <%# サインイン時にtrue、サインアウト時はfalseを返すメソッド。%>
             <div id="user-info">
-              <%= image_tag current_user.image, class: "h-image" %>
+              <% if current_user.image.attached? %>  <%# 画像が設定されていない(nil)場合にfalseを返す %>
+                <%= image_tag current_user.image, class: "h-image" %>
+              <% else %>
+                <%= image_tag 'default-avatar.png', class: "h-image" %>    
+              <% end %>  
+
               <div id="user-name"><%= current_user.name %></div>
             </div>
+
             <ul id="menu" class="add-none">
-              <li>施設の新規登録</li>
+              <li><%= link_to "施設の新規登録", :new_room %></li>
               <li>予約済み一覧</li>
-              <li>登録済み一覧</li>
+              <li><%= link_to "登録施設一覧", :rooms %></li>
               <li><%= link_to "アカウント設定", users_show_path %></li>
               <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？"} %></li>
             </ul>           
@@ -44,7 +50,6 @@
       <% if alert %>
         <p class="alert alert-danger"><%= alert %></p>
       <% end %>
-
 
     <%= yield %>
 
