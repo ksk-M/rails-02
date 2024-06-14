@@ -26,7 +26,8 @@
           <td><%= "¥#{room.charge}~" %></td>
           <td><%= l room.created_at %></td>
           <%# lメソッドは日付や数値などをlocale(ja.yml)に指定されているフォーマットに変換する。ロングバージョンは以下の記述で可能 %>
-          <%# <td><%= l room.created_at, format: :long</td> %> %>
+          <%# <td><%= l room.created_at, format: :long</td> %>
+            <td><%= room.user_id %></td> <%# 削除する！ %>
           <td><%= link_to "削除", room, method: :delete, data: { confirm: "「#{room.name}」を削除しますか？\nこの操作は取消できません。" } %></td>
         </tr>
       <% end %>

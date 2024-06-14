@@ -1,0 +1,39 @@
+<div class="own-rooms-container">
+  <h2>予約一覧</h2>
+
+  <table class="room-index">
+    <thead>
+      <tr>
+        <th>画像</th>
+        <th>施設名</th>
+        <th>紹介文</th>
+        <th>合計料金</th>
+        <th>チェックイン</th>
+        <th>チェックアウト</th>
+        <th>予約確定日時</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @reservations.each do |reservation| %>
+        <tr>
+          <td>
+            <% if reservation.room.image.attached? %>
+              <%= image_tag reservation.room.image, class: "index-room-img" %>
+            <% else %>
+              <%= image_tag 'default-room.png', class: "index-room-img" %>
+            <% end %>
+          </td>
+          <td><%= reservation.room.name %></td>
+          <td><%= reservation.room.introduction %></td>
+          <td><%= "¥#{reservation.room.charge}~" %></td>
+          <td><%= l reservation.check_in %></td>
+          <td><%= l reservation.check_out %></td>
+          <td><%= l reservation.created_at, format: :long %></td>
+          <%# lメソッドは日付や数値などをlocale(ja.yml)に指定されているフォーマットに変換する。ロングバージョンも指定したため上記format:で使用可能 %>
+            <td><%= reservation.user_id %></td> <%# 削除する！ %>
+          <td><%= link_to "削除", reservation, method: :delete, data: { confirm: "「{room.name}」を削除しますか？\nこの操作は取消できません。" } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

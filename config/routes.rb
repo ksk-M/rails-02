@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   
   root to: 'home#top' # トップページへは「root」でルーティング指定
   resources :rooms
+  resources :reservations
   get 'users/show'
-  get 'users/profile'
   get 'users', to: 'users#show'
+  get 'users/profile'
+  # get 'reservations/index'
 end

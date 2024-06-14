@@ -18,7 +18,7 @@ li {
 .alert,
 .notice {
   position: fixed;
-  bottom: 175px;
+  bottom: 50px;
   left: 0;
   right: 0;
   color: #fff;
@@ -32,7 +32,7 @@ li {
 
 .failure-notice {
   position: fixed;
-  bottom: 30px;
+  bottom: 50px;
   left: 0;
   right: 0;
   padding: 10px 24px;
@@ -87,11 +87,14 @@ li {
   font-size: 19px;
 }
 
+#user-info:hover {
+  opacity: 0.8;
+  transition: .3s;
+}
+
 #menu {
   position: absolute;
   top: 68px;
-  color: #000;
-  /* color後で消す */
   background-color: #fff;
   margin: 0;
   padding: 10px 0 5px;
@@ -113,7 +116,7 @@ li {
 
 footer {
   width: 100%;
-  height: 120px;
+  height: 100px;
   background-color: rgba(0, 0, 51, 0.838);
   margin-top: auto;
   display: flex;
@@ -263,7 +266,7 @@ textarea {
 }
 
 .own-rooms-container h2 {
-  margin-left: 10px;
+  margin: 20px 0 40px 10px;
 }
 
 .index-room-img {
@@ -336,4 +339,27 @@ td:nth-child(6) {
 .address {
   margin: -15px 0 25px;
   color: rgb(110, 108, 108);
+}
+
+.reservation-form {
+  margin: 50px auto 0;
+  width: 460px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, .2);
+
+}
+
+.reservation-form .form {
+  border-radius: 6px;
+  background-color: #fbfbfbdf;
+
+}
+
+.check_in_out_number {
+  display: flex;
+  justify-content: space-between;
+}
+
+.number-field {
+  width: 70px;
+  height: 41px;
 }

@@ -1,7 +1,7 @@
 <div class="room-detail-container">
   <div class="room-detail-header">
       <%= link_to "戻る", :back, class: "edit-link" %>
-      <%= link_to "編集", [:edit, @room], class: "edit-link"  %>
+      <%= link_to "編集", [:edit,@room], class: "edit-link"  %>
   </div>
 
   <div class="room-detail">
@@ -20,9 +20,35 @@
       <p><%= @room.introduction %></p>
 
       <div class="reservation-form">
-        <p>チェックイン</p>
-      </div>
+        <%= form_with model: @reservation do |f| %>
+          <div class="form">
+            <div class="check_in_out_number">
+              <div class="field">
+                <%= f.label :check_in %><br>
+                <%= f.date_field :check_in %>
+              </div>
+              <div class="field">
+                <%= f.label :check_out %><br>
+                <%= f.date_field :check_out %>
+              </div>
+              <div class="field">
+                <%= f.label :number_of_people %><br>
+                <%= f.number_field :number_of_people, min: 1, class: "number-field" %>
+              </div>
+            </div>
 
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.hidden_field :room_id, value: @room.id %>
+
+            <div class="actions">
+              <%= f.submit "予約", class: 'btn' %>
+            </div>
+
+            <%= link_to "キャンセル", :back %>
+
+          </div>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

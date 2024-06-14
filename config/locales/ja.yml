@@ -35,9 +35,14 @@ ja:
         charge: 料金
         address: 住所
         image: 施設画像
+      reservation:
+        check_in: チェックイン
+        check_out: チェックアウト
+        number_of_people: 人数
     models:
       user: ユーザー
       room: 施設
+      reservation: 予約
   devise:
     confirmations:
       confirmed: メールアドレスが確認できました。
