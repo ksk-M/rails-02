@@ -23,7 +23,7 @@
           </td>
           <td><%= link_to room.name, room_path(room) %></td>
           <td><%= room.introduction %></td>
-          <td><%= "¥#{room.charge}~" %></td>
+          <td><%= "¥#{room.charge.to_s(:delimited)}~" %></td>
           <td><%= l room.created_at %></td>
           <%# lメソッドは日付や数値などをlocale(ja.yml)に指定されているフォーマットに変換する。ロングバージョンは以下の記述で可能 %>
           <%# <td><%= l room.created_at, format: :long</td> %>

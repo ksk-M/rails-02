@@ -29,9 +29,9 @@
           <td><%= reservation.room.introduction %></td>
           <td><%= reservation.number_of_people %></td>
           <td><%= (reservation.check_out - reservation.check_in).to_i %></td>
-          <td><%= "¥#{(reservation.check_out - reservation.check_in).to_i *
+          <td><%= "¥#{((reservation.check_out - reservation.check_in).to_i *
               reservation.room.charge *
-              reservation.number_of_people}" %>
+              reservation.number_of_people).to_s(:delimited)}" %>
           </td>
           <td><%= l reservation.check_in %></td>
           <td><%= l reservation.check_out %></td>
@@ -42,9 +42,9 @@
             data: { confirm: "以下の予約を削除しますか？\n
             #{reservation.room.name}\n
             #{l reservation.check_in}〜#{l reservation.check_out}\n
-            ¥#{(reservation.check_out - reservation.check_in).to_i *
+            ¥#{((reservation.check_out - reservation.check_in).to_i *
               reservation.room.charge *
-              reservation.number_of_people}" } %>
+              reservation.number_of_people).to_s(:delimited)}"} %>
           </td>
         </tr>
       <% end %>

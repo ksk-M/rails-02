@@ -15,7 +15,7 @@
     <div class="room-datail-body">
       <div class="name-and-charge">
         <p><%= @room.name %></p>
-        <p><%= "¥#{@room.charge}~" %></p>
+        <p><%= "¥#{@room.charge.to_s(:delimited)}~" %></p>
       </div>
 
       <p class="address"><%= @room.address %></p>
