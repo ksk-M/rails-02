@@ -1,25 +1,7 @@
-<div class="room-detail-container">
-  <div class="room-detail-header">
-      <%= link_to "戻る", :back, class: "edit-link" %>
-      <%= link_to "編集", [:edit,@room], class: "edit-link"  %>
-  </div>
-
-  <div class="room-detail">
-    <% if @room.image.attached? %>
-      <%= image_tag @room.image, class: "room-img" %>
-    <% else %>
-      <%= image_tag 'default-room.png', class: "room-img" %>
-    <% end %>
-    <div class="room-datail-body">
-      <div class="name-and-charge">
-        <p><%= @room.name %></p>
-        <p><%= "¥#{@room.charge}~" %></p>
-      </div>
-
-      <p class="address"><%= @room.address %></p>
-      <p class="introduction"><%= @room.introduction %></p>
-
-      <div class="reservation-form">
+<div class="confirm-wrapper">
+  <h2>予約内容の確認</h2>
+  <div class="confirm-body">
+          <div class="reservation-form">
         <%= form_with model:@reservation, url: confirm_reservations_path do |f| %>
           <div class="form">
 
@@ -41,7 +23,7 @@
             </div>
 
             <%= f.hidden_field :user_id, value: current_user.id %>
-            <%= f.hidden_field :room_id, value: @room.id %>
+            <%# <%= f.hidden_field :room_id, value: @room.id %> %>
 
             <div class="actions">
               <%= f.submit "予約", class: 'btn' %>
@@ -51,7 +33,6 @@
 
           </div>
         <% end %>
-      </div>
-    </div>
+
   </div>
 </div>

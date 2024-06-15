@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  validates :name, presence: true
+  validates :name, :email, :password, :password_confirmation, presence: true
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable

@@ -36,8 +36,8 @@ ja:
         address: 住所
         image: 施設画像
       reservation:
-        check_in: チェックイン
-        check_out: チェックアウト
+        check_in: チェックイン日
+        check_out: チェックアウト日
         number_of_people: 人数
     models:
       user: ユーザー
@@ -160,6 +160,7 @@ ja:
   date:
     formats:
       default: '%Y/%m/%d'
+      # Date型に対して適用される
   time:
     formats:
       default: '%Y/%m/%d'

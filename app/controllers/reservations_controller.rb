@@ -3,6 +3,10 @@ class ReservationsController < ApplicationController
     @reservations = current_user.reservations
   end
 
+  def confirm
+    @reservation = Reservation.new(params.require(:reservation).permit(:check_in, :check_out, :number_of_people, :user_id, :room_id))
+  end
+  
   def create
     @reservation = Reservation.new(params.require(:reservation).permit(:check_in, :check_out, :number_of_people, :user_id, :room_id))
 
@@ -10,7 +14,7 @@ class ReservationsController < ApplicationController
       flash[:notice] = "予約の登録が完了しました"
       redirect_to :reservations
     else
-      @room = Room.find_by(params[:reservation][:room_id])
+      @room = Room.find(params[:reservation][:room_id])
       flash[:alert] = "予約の登録に失敗しました"
       render "rooms/show"
     end

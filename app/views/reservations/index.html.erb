@@ -7,6 +7,8 @@
         <th>画像</th>
         <th>施設名</th>
         <th>紹介文</th>
+        <th>人数</th>
+        <th>日数</th>
         <th>合計料金</th>
         <th>チェックイン</th>
         <th>チェックアウト</th>
@@ -23,15 +25,17 @@
               <%= image_tag 'default-room.png', class: "index-room-img" %>
             <% end %>
           </td>
-          <td><%= reservation.room.name %></td>
+          <td><%= link_to reservation.room.name, room_path(reservation.room) %></td>
           <td><%= reservation.room.introduction %></td>
-          <td><%= "¥#{reservation.room.charge}~" %></td>
+          <td><%= reservation.number_of_people %></td>
+          <td><%= (reservation.check_out - reservation.check_in).to_i %></td>
+          <td><%= "¥#{(reservation.check_out - reservation.check_in).to_i * reservation.room.charge * reservation.number_of_people}~" %></td>
           <td><%= l reservation.check_in %></td>
           <td><%= l reservation.check_out %></td>
           <td><%= l reservation.created_at, format: :long %></td>
           <%# lメソッドは日付や数値などをlocale(ja.yml)に指定されているフォーマットに変換する。ロングバージョンも指定したため上記format:で使用可能 %>
             <td><%= reservation.user_id %></td> <%# 削除する！ %>
-          <td><%= link_to "削除", reservation, method: :delete, data: { confirm: "「{room.name}」を削除しますか？\nこの操作は取消できません。" } %></td>
+          <td><%= link_to "削除", reservation, method: :delete, data: { confirm: "「#{reservation.room.name}」を削除しますか？\nこの操作は取消できません。" } %></td>
         </tr>
       <% end %>
     </tbody>
