@@ -1,7 +1,9 @@
 <div class="room-detail-container">
   <div class="room-detail-header">
       <%= link_to "戻る", :back, class: "edit-link" %>
-      <%= link_to "編集", [:edit,@room], class: "edit-link"  %>
+      <% if current_user.id == @room.user_id %>
+        <%= link_to "編集", [:edit,@room], class: "edit-link"  %>
+      <% end %>
   </div>
 
   <div class="room-detail">
