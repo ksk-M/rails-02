@@ -29,13 +29,23 @@
           <td><%= reservation.room.introduction %></td>
           <td><%= reservation.number_of_people %></td>
           <td><%= (reservation.check_out - reservation.check_in).to_i %></td>
-          <td><%= "¥#{(reservation.check_out - reservation.check_in).to_i * reservation.room.charge * reservation.number_of_people}~" %></td>
+          <td><%= "¥#{(reservation.check_out - reservation.check_in).to_i *
+              reservation.room.charge *
+              reservation.number_of_people}" %>
+          </td>
           <td><%= l reservation.check_in %></td>
           <td><%= l reservation.check_out %></td>
           <td><%= l reservation.created_at, format: :long %></td>
           <%# lメソッドは日付や数値などをlocale(ja.yml)に指定されているフォーマットに変換する。ロングバージョンも指定したため上記format:で使用可能 %>
             <td><%= reservation.user_id %></td> <%# 削除する！ %>
-          <td><%= link_to "削除", reservation, method: :delete, data: { confirm: "「#{reservation.room.name}」を削除しますか？\nこの操作は取消できません。" } %></td>
+          <td><%= link_to "削除", reservation, method: :delete,
+            data: { confirm: "以下の予約を削除しますか？\n
+            #{reservation.room.name}\n
+            #{l reservation.check_in}〜#{l reservation.check_out}\n
+            ¥#{(reservation.check_out - reservation.check_in).to_i *
+              reservation.room.charge *
+              reservation.number_of_people}" } %>
+          </td>
         </tr>
       <% end %>
     </tbody>

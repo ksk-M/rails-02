@@ -9,6 +9,7 @@ body {
 
 a {
   text-decoration: none;
+  color: #0000aed2;
 }
 
 li {
@@ -343,6 +344,7 @@ td:nth-child(6) {
 
 .introduction {
   margin-bottom: 30px;
+  color: rgb(110, 108, 108);
 }
 
 .reservation-form {
@@ -375,4 +377,59 @@ td:nth-child(6) {
   margin: 5px auto;
   color: red;
   font-weight: bold;
+}
+
+/* reservation#confirm */
+.confirm-wrapper {
+  margin: 30px auto;
+  padding: 10px 30px 20px;
+  background-color: #eedccb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.confirm-wrapper h2 {
+  font-size: 28px;
+  padding-bottom: 7px;
+  border-bottom: 1.5px solid rgb(110, 108, 108);
+  color: rgb(110, 108, 108);
+}
+
+.confirm-body {
+  width: 530px;
+}
+
+.confirm-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgb(110, 108, 108);
+}
+
+.confirm-container p {
+  font-size: 19px;
+}
+
+.black {
+  color: #f76140;
+  font-weight: bold;
+}
+
+.confirm-btn {
+  height: 45px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+  font-size: 19px;
+}
+
+.confirm-btn:hover {
+  opacity: 0.7;
+}
+
+.first-btn {
+  background-color: #f76140;
+  color: #fff;
+  margin-bottom: 20px;
 }
