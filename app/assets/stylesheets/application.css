@@ -161,7 +161,7 @@ footer {
   border-radius: 7px;
   height: 45px;
   border: none;
-  background-color: #f76140;
+  background-color: rgba(11, 65, 146, 0.983);
   color: #fff;
   font-size: 18px;
 }
@@ -332,7 +332,7 @@ textarea {
 }
 
 .room-index td:nth-child(2),
-td:nth-child(6) {
+td:nth-child(9) {
   /* width: 0; */
   /* 下記と組み合わせて最小幅に */
   white-space: nowrap;

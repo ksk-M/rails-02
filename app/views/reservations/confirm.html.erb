@@ -2,6 +2,7 @@
   <h2>予約内容の確認</h2>
   <div class="confirm-body">
     <div class="confirm-container">
+      <%# 「human_attribute_name」 ・・・ ActiveRecord::Base のクラスメソッドで、内部的にI18nモジュールを利用してくれるというもの。つまり日本語化をしてくれる。 %>
       <h3><%= Reservation.human_attribute_name(:check_in) %></h3>
       <p><%= l @reservation.check_in %></p>
     </div>
@@ -29,7 +30,6 @@
         @reservation.number_of_people).to_s(:delimited)}" %>
       </p>
     </div>
-      <%# 「human_attribute_name」 ・・・ ActiveRecord::Base のクラスメソッドで、内部的にI18nモジュールを利用してくれるというもの。つまり日本語化をしてくれる。 %>
       <p>上記内容でよろしければ、「確定」ボタンを押してください。</p>
   </div>
    
