@@ -20,6 +20,16 @@
         <%= f.text_area :introduction %>
       </div>
 
+      <div class="field">
+        <%= f.label :password %>
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: "6文字以上" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "6文字以上" %>
+      </div>
+
       <div class="actions">
         <%= f.submit "保存", class: 'btn' %>
       </div>
