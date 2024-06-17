@@ -24,9 +24,9 @@
     <div class="confirm-container">
       <h3><%= Room.human_attribute_name(:charge) %></h3>
       <p class="black">
-        <%= "¥#{(@reservation.check_out - @reservation.check_in).to_i *
+        <%= "¥#{((@reservation.check_out - @reservation.check_in).to_i *
         @reservation.room.charge *
-        @reservation.number_of_people}" %>
+        @reservation.number_of_people).to_s(:delimited)}" %>
       </p>
     </div>
       <%# 「human_attribute_name」 ・・・ ActiveRecord::Base のクラスメソッドで、内部的にI18nモジュールを利用してくれるというもの。つまり日本語化をしてくれる。 %>
@@ -39,7 +39,7 @@
     <%= f.hidden_field :number_of_people %>
     <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.hidden_field :room_id, value: @reservation.room_id %>
-    <%= f.submit "確定", class: 'confirm-btn first-btn' %>
+    <%= f.submit "確定", class: 'confirm-btn orange-btn' %>
     <%= f.submit "修正", name: :back, class: 'confirm-btn' %>
       <%# コントローラでparams[:back]の時の処理を定義 %>
   <% end %>

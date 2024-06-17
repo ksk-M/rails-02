@@ -1,0 +1,38 @@
+<div class="search-form-container">
+  <%= form_with url:search_rooms_path, method: :get do |f|	%>
+    <div class="search-form">
+      <div class="search-form-field">
+        <%= f.text_field :area, placeholder: "住所から検索" %>
+        <%= f.text_field :keyword, placeholder: "施設名・施設詳細からフリーワード検索" %>
+      </div>
+      <%= f.submit "検索", class: 'search-btn' %>
+    </div>
+  <% end %>
+</div>
+
+
+<div class="search-results-list-wrapper">
+  <p class= "count-results">
+    <strong><%= @count %></strong>
+     件が見つかりました。
+  </p>
+
+  <ul class="search-results-list">
+    <% @rooms.each do |room| %>
+      <li class="search-result">
+        <% if room.image.attached? %>
+          <%= image_tag room.image, class: "search-result-img" %>
+        <% else %>
+          <%= image_tag 'default-room.png', class: "search-result-img" %>
+        <% end %>
+
+        <div class="search-result-container">
+          <h4><%=link_to room.name, room, class: "search-result-name" %></h3>
+          <p class="address"><%= room.address %></p>
+          <p class="introduction overflow"><%= room.introduction %></p>
+          <p class="charge red"><%= "¥#{room.charge.to_s(:delimited)}~" %></p>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+</div>

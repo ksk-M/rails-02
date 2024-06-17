@@ -8,7 +8,6 @@
         <th>施設名</th>
         <th>紹介文</th>
         <th>人数</th>
-        <th>日数</th>
         <th>合計料金</th>
         <th>チェックイン</th>
         <th>チェックアウト</th>
@@ -28,7 +27,6 @@
           <td><%= link_to reservation.room.name, room_path(reservation.room) %></td>
           <td><%= reservation.room.introduction %></td>
           <td><%= reservation.number_of_people %></td>
-          <td><%= (reservation.check_out - reservation.check_in).to_i %></td>
           <td><%= "¥#{((reservation.check_out - reservation.check_in).to_i *
               reservation.room.charge *
               reservation.number_of_people).to_s(:delimited)}" %>
@@ -37,7 +35,6 @@
           <td><%= l reservation.check_out %></td>
           <td><%= l reservation.created_at, format: :long %></td>
           <%# lメソッドは日付や数値などをlocale(ja.yml)に指定されているフォーマットに変換する。ロングバージョンも指定したため上記format:で使用可能 %>
-            <td><%= reservation.user_id %></td> <%# 削除する！ %>
           <td><%= link_to "削除", reservation, method: :delete,
             data: { confirm: "以下の予約を削除しますか？\n
             #{reservation.room.name}\n

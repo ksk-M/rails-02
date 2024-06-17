@@ -49,4 +49,16 @@ class RoomsController < ApplicationController
     flash[:notice] = "施設を削除しました"
     redirect_to :rooms
   end
+
+  def search
+    if params[:area].present?
+      @rooms = Room.where("address like ?", "%#{params[:area]}%")
+    elsif params[:keyword].present?
+      @rooms = Room.where("name like ? or introduction like ?", "%#{params[:keyword]}%", "%#{params[:keyword]}%")
+    else
+      @rooms = Room.all
+    end
+    
+    @count = @rooms.count
+  end
 end

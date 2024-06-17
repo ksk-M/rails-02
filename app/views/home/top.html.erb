@@ -1,11 +1,11 @@
 <div class="first-view">
   <h1 class="first-view-title">国内旅行<span>なら</span>Potepan Travel</h1>
 
-  <div class="erea-search">
-    <form>
-      <input type="text">
-      <input type="submit">
-    </form>
+  <div class="first-view-search-container">
+    <%= form_with url:search_rooms_path, method: :get do |f|	%>
+      <%= f.text_field :area, placeholder: "エリア名を入力", class: 'first-view-search-imput' %>
+      <%= f.submit "検索", class: 'top-btn' %>
+    <% end %>
   </div>
 </div>
 
@@ -14,23 +14,31 @@
   
   <ul class="recommend-area-container">
     <li class="recommend-area">
-      <div>東京</div>
-      <%= image_tag 'tokyo.jpeg', class: 'img' %>
+      <%= link_to search_rooms_path(area: "東京") do %>
+        <h4>東京</h4>
+        <%= image_tag 'tokyo.jpeg', class: 'img' %>
+      <% end %>
     </li>
 
     <li class="recommend-area">
-      <div>大阪</div>
-      <%= image_tag 'osaka.jpeg', class: 'img' %>
+      <%= link_to search_rooms_path(area: "大阪") do %>
+        <h4>大阪</h4>
+        <%= image_tag 'osaka.jpeg', class: 'img' %>
+      <% end %>
     </li>
 
     <li class="recommend-area">
-      <div>京都</div>
-      <%= image_tag 'kyoto.jpeg', class: 'img' %>
+      <%= link_to search_rooms_path(area: "京都") do %>
+        <h4>京都</h4>
+        <%= image_tag 'kyoto.jpeg', class: 'img' %>
+      <% end %>
     </li>
 
     <li class="recommend-area">
-      <div>札幌</div>
-      <%= image_tag 'sapporo.jpeg', class: 'img' %>
+      <%= link_to search_rooms_path(area: "札幌") do %>
+        <h4>札幌</h4>
+        <%= image_tag 'sapporo.jpeg', class: 'img' %>
+      <% end %>
     </li>
   </ul>
 </div>
