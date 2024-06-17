@@ -1,0 +1,56 @@
+<div class="room-detail-container">
+  <div class="room-detail-header">
+      <%= link_to "戻る", :back, class: "edit-link" %>
+      <% if current_user.id == @room.user_id %>
+        <%= link_to "編集", [:edit,@room], class: "edit-link"  %>
+      <% end %>
+  </div>
+
+  <div class="room-detail">
+    <% if @room.image.attached? %>
+      <%= image_tag @room.image, class: "room-img" %>
+    <% else %>
+      <%= image_tag 'default-room.png', class: "room-img" %>
+    <% end %>
+    <div class="room-datail-body">
+      <div class="name-and-charge">
+        <p><%= @room.name %></p>
+        <p><%= "¥#{@room.charge.to_s(:delimited)}~" %></p>
+      </div>
+
+      <p class="address"><%= @room.address %></p>
+      <p class="introduction"><%= @room.introduction %></p>
+
+      <div class="reservation-form">
+        <%= form_with model:@reservation, url: confirm_reservations_path do |f| %>
+          <div class="form">
+
+            <%= render "shared/error", obj: @reservation %>
+
+            <div class="check_in_out_number">
+              <div class="field">
+                <%= f.label :check_in %><br>
+                <%= f.date_field :check_in %>
+              </div>
+              <div class="field">
+                <%= f.label :check_out %><br>
+                <%= f.date_field :check_out %>
+              </div>
+              <div class="field">
+                <%= f.label :number_of_people %><br>
+                <%= f.number_field :number_of_people, min: 1, class: "number-field" %>
+              </div>
+            </div>
+
+            <%= f.hidden_field :user_id, value: current_user.id %>
+            <%= f.hidden_field :room_id, value: @room.id %>
+
+            <div class="actions">
+              <%= f.submit "確認画面へ", class: 'btn' %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

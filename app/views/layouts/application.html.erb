@@ -3,14 +3,58 @@
   <head>
     <title>TripApp</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%# ネット上で公開されているjQueryを絶対パスで読み込む %>
+    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script> 
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_pack_tag 'application' %>
   </head>
 
   <body>
+    <header>
+      <div class="header-wrapper">
+        <%= link_to "Potepan Travel", "/", class: "title" %>
+        <div class="header-container">
+          <% if user_signed_in? %>  <%# サインイン時にtrue、サインアウト時はfalseを返すメソッド。%>
+            <div id="user-info">
+              <% if current_user.image.attached? %>  <%# 画像が設定されていない(nil)場合にfalseを返す %>
+                <%= image_tag current_user.image, class: "h-image" %>
+              <% else %>
+                <%= image_tag 'default-avatar.png', class: "h-image" %>    
+              <% end %>  
+
+              <div id="user-name"><%= current_user.name %></div>
+            </div>
+
+            <ul id="menu" class="add-none">
+              <li><%= link_to "施設の新規登録", :new_room %></li>
+              <li><%= link_to "登録施設一覧", :rooms %></li>
+              <li><%= link_to "予約一覧", :reservations %></li>
+              <li><%= link_to "アカウント設定", users_show_path %></li>
+              <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしますか？"} %></li>
+            </ul>           
+          <% else %>
+            <%= link_to "ログイン", new_user_session_path, class: "h-link" %>
+            <%= link_to "新規登録", new_user_registration_path, class: "h-link" %>
+          <% end %>
+        </div>
+      </div>
+    </header>
+
+      <% if notice %>
+        <p class="alert"><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
+
     <%= yield %>
+
+    <footer>
+        <%= link_to "Potepan Travel", "/", class: "title" %>
+    </footer>
   </body>
 </html>

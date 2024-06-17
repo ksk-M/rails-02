@@ -1,0 +1,11 @@
+one:
+  name: MyString
+  introduction: MyText
+  charge: 1
+  address: MyString
+
+two:
+  name: MyString
+  introduction: MyText
+  charge: 1
+  address: MyString

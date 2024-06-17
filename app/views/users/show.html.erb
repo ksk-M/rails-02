@@ -1,0 +1,14 @@
+<div class="account-wrapper">
+  <%= render "shared/settings" %>
+
+  <div class="account-container">
+    <div class="account-title">
+      <h2>アカウント情報</h2>
+      <%= link_to "編集", edit_user_registration_path, class: "edit-link" %>
+    </div>
+    <h4>メールアドレス</h4>
+    <%= current_user.email %>
+    <h4>パスワード</h4>
+    <p>*********</p>
+  </div>
+</div>

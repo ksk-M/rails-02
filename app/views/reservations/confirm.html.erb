@@ -1,0 +1,46 @@
+<div class="confirm-wrapper">
+  <h2>予約内容の確認</h2>
+  <div class="confirm-body">
+    <div class="confirm-container">
+      <%# 「human_attribute_name」 ・・・ ActiveRecord::Base のクラスメソッドで、内部的にI18nモジュールを利用してくれるというもの。つまり日本語化をしてくれる。 %>
+      <h3><%= Reservation.human_attribute_name(:check_in) %></h3>
+      <p><%= l @reservation.check_in %></p>
+    </div>
+    
+    <div class="confirm-container">
+      <h3><%= Reservation.human_attribute_name(:check_out) %></h3>
+      <p><%= l @reservation.check_out %></p>
+    </div>
+
+    <div class="confirm-container">
+      <h3>日数</h3>
+      <p><%= "#{(@reservation.check_out - @reservation.check_in).to_i}泊" %></p>
+    </div>
+
+    <div class="confirm-container">
+      <h3><%= Reservation.human_attribute_name(:number_of_people) %></h3>
+      <p><%= "#{@reservation.number_of_people}名" %></p>
+    </div>
+
+    <div class="confirm-container">
+      <h3><%= Room.human_attribute_name(:charge) %></h3>
+      <p class="black">
+        <%= "¥#{((@reservation.check_out - @reservation.check_in).to_i *
+        @reservation.room.charge *
+        @reservation.number_of_people).to_s(:delimited)}" %>
+      </p>
+    </div>
+      <p>上記内容でよろしければ、「確定」ボタンを押してください。</p>
+  </div>
+   
+  <%= form_with model:@reservation do |f| %>
+    <%= f.hidden_field :check_in %>
+    <%= f.hidden_field :check_out %>
+    <%= f.hidden_field :number_of_people %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+    <%= f.hidden_field :room_id, value: @reservation.room_id %>
+    <%= f.submit "確定", class: 'confirm-btn orange-btn' %>
+    <%= f.submit "修正", name: :back, class: 'confirm-btn' %>
+      <%# コントローラでparams[:back]の時の処理を定義 %>
+  <% end %>
+</div>

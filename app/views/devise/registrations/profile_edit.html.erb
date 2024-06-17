@@ -1,0 +1,40 @@
+<div class="form-wrapper">
+  <h2>プロフィール編集</h2>
+
+  <%= form_for current_user, url: {action: 'profile_update'} do |f| %>
+    <%= render "devise/shared/error_messages", resource: current_user %>
+
+    <div class="form">
+      <div class="field">
+        <%= f.label :image %><br />
+        <%= f.file_field :image %>
+      </div>
+
+      <div class="field">
+        <%= f.label :name %><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :introduction %><br />
+        <%= f.text_area :introduction %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %>
+        <%= f.password_field :password, autocomplete: "new-password", placeholder: "6文字以上" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "6文字以上" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "保存", class: 'btn' %>
+      </div>
+
+      <%= link_to "キャンセル", :back %>
+    </div>
+  <% end %>
+</div>

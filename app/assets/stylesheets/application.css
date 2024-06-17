@@ -1,15 +1,572 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+body {
+  margin: 0;
+  background-color: rgb(236, 236, 236);
+  /* footer最下部に固定*/
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  color: #0000aed2;
+}
+
+li {
+  list-style: none;
+}
+
+.alert,
+.notice {
+  position: fixed;
+  bottom: 50px;
+  left: 0;
+  right: 0;
+  color: #fff;
+  background-color: #000;
+  border-radius: 4px;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, .3);
+  padding: 10px 24px;
+  margin: 0 auto;
+  width: fit-content;
+}
+
+.failure-notice {
+  position: fixed;
+  bottom: 50px;
+  left: 0;
+  right: 0;
+  padding: 10px 24px;
+  margin: 0 auto;
+  color: #fff;
+  background-color: #f91f1f;
+  border-radius: 4px;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, .3);
+  width: fit-content;
+}
+
+
+.alert-danger {
+  background-color: #f91f1f;
+}
+
+.header-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba(0, 0, 51, 0.838);
+}
+
+.title {
+  font-size: 33px;
+  color: #fff;
+  margin: 10px 0 10px 30px;
+}
+
+.h-image {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.header-container,
+.header-container a {
+  color: #fff;
+  margin: 0 30px;
+}
+
+.h-link {
+  margin: 30px;
+}
+
+#user-info {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 19px;
+}
+
+#user-info:hover {
+  opacity: 0.8;
+  transition: .3s;
+}
+
+#menu {
+  position: absolute;
+  top: 68px;
+  background-color: #fff;
+  margin: 0;
+  padding: 10px 0 5px;
+  width: 170px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+#menu a {
+  display: inline-block;
+  color: #0076d1;
+  font-weight: bold;
+  margin: 2px 0;
+}
+
+.add-none {
+  display: none;
+}
+
+footer {
+  width: 100%;
+  height: 100px;
+  background-color: rgba(0, 0, 51, 0.838);
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+}
+
+/* top */
+.first-view {
+  text-align: center;
+  background-image: url('beach.jpeg');
+  background-size: cover;
+  height: 100vh;
+}
+
+.first-view-title {
+  font-size: 55px;
+  color: #fff;
+  margin: 100px 0 50px;
+}
+
+.first-view-title span {
+  font-size: 38px;
+}
+
+.first-view-search-container {
+  width: 700px;
+  margin: 0 auto;
+  padding: 20px 30px;
+  background-color: hsla(0, 0%, 100%, 0.4);
+  border-radius: 7px;
+}
+
+.first-view-search-imput {
+  border-radius: 7px;
+  height: 45px;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.top-btn {
+  border-radius: 7px;
+  height: 45px;
+  border: none;
+  background-color: rgba(11, 65, 146, 0.983);
+  color: #fff;
+  font-size: 18px;
+}
+
+.top-btn:hover {
+  opacity: .8;
+}
+
+.recommend-area-wrapper {
+  margin: 30px 0 100px;
+}
+
+.recommend-area-title {
+  text-align: center;
+  margin: 110px 0 50px;
+  font-size: 35px;
+}
+
+.recommend-area-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  row-gap: 30px;
+  padding: 0 20px;
+}
+
+@media screen and (max-width: 766px) {
+  .recommend-area-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.recommend-area {
+  text-align: center;
+  font-size: 25px;
+}
+
+.recommend-area h4 {
+  margin: 0 0 10px;
+  color: #000;
+}
+
+.recommend-area a:hover {
+  opacity: 0.8;
+}
+
+.img {
+  width: 90%;
+  height: calc(100% - 47.5px);
+  object-fit: cover;
+  border-radius: 15px;
+}
+
+/* registrations-new */
+.form-wrapper {
+  margin: 0 auto;
+  width: 50%;
+  max-width: 500px;
+}
+
+.form {
+  background-color: #fff;
+  padding: 20px 20px;
+  margin: 0 auto 20px;
+}
+
+.field {
+  margin-bottom: 20px;
+}
+
+input,
+textarea {
+  padding: 6px 8px;
+  font-size: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.check-box {
+  width: fit-content;
+}
+
+.actions {
+  display: flex;
+  justify-content: right;
+}
+
+.btn {
+  width: 33%;
+}
+
+.edit-link {
+  color: navy;
+  font-size: 20px;
+  margin: auto 15px;
+}
+
+/* shared#_settings */
+.settings-container {
+  width: 20vw;
+  margin: 20px;
+}
+
+.settings {
+  font-size: 18px;
+  padding: 0;
+}
+
+.settings li {
+  border: solid 1px gray;
+  border-bottom: none;
+  padding: 20px;
+}
+
+.settings li:last-child {
+  border-bottom: solid 1px gray;
+}
+
+/* users#show */
+.account-wrapper {
+  display: flex;
+  margin-top: 30px;
+}
+
+.account-container {
+  width: 55vw;
+  margin: 20px 50px;
+}
+
+.account-title {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: solid 1px gray;
+}
+
+.rounded-cicle {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* rooms#index */
+.own-rooms-container {
+  margin: 10px;
+}
+
+.own-rooms-container h2 {
+  margin: 20px 0 40px 10px;
+}
+
+.index-room-img {
+  width: 150px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.room-index {
+  border-collapse: collapse;
+  /* 隣接セルの境界線同士を間を空けず重ねて表示 */
+}
+
+.room-index thead {
+  border-bottom: solid 1px #000;
+}
+
+.room-index td {
+  padding: 10px;
+}
+
+.room-index td:nth-child(2),
+td:nth-child(9) {
+  /* width: 0; */
+  /* 下記と組み合わせて最小幅に */
+  white-space: nowrap;
+  /* 文字列を折り返さない */
+}
+
+
+/* rooms#show */
+.room-detail-container {
+  padding: 30px;
+}
+
+.room-detail-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.room-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.room-img {
+  width: 40%;
+  object-fit: contain;
+}
+
+.room-datail-body {
+  width: 50%;
+  padding: 25px;
+  background-color: #eedccb;
+}
+
+.name-and-charge {
+  display: flex;
+  justify-content: space-between;
+  font-size: 25px;
+  color: rgb(110, 108, 108);
+}
+
+.name-and-charge p:last-child {
+  color: #f76140;
+}
+
+.address {
+  margin: -15px 0 25px;
+  color: rgb(110, 108, 108);
+}
+
+.introduction {
+  margin-bottom: 30px;
+  color: rgb(110, 108, 108);
+}
+
+.reservation-form {
+  margin: 20px auto 0;
+  width: 80%;
+  min-width: 450px;
+  box-shadow: 0 2px 2px rgba(0, 0, 0, .2);
+}
+
+.reservation-form .form {
+  border-radius: 6px;
+  background-color: #fbfbfbdf;
+  margin-bottom: 10px;
+}
+
+.check_in_out_number {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.number-field {
+  width: 70px;
+  height: 41px;
+}
+
+/* shared#_error */
+.room-datail-body ul {
+  padding: 0;
+  margin: 5px auto;
+  color: red;
+  font-weight: bold;
+}
+
+/* reservation#confirm */
+.confirm-wrapper {
+  margin: 30px auto;
+  padding: 10px 30px 20px;
+  background-color: #eedccb;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+
+.confirm-wrapper h2 {
+  font-size: 28px;
+  padding-bottom: 7px;
+  border-bottom: 1.5px solid rgb(110, 108, 108);
+  color: rgb(110, 108, 108);
+}
+
+.confirm-body {
+  width: 530px;
+}
+
+.confirm-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgb(110, 108, 108);
+}
+
+.confirm-container p {
+  font-size: 19px;
+}
+
+.black {
+  color: #f76140;
+  font-weight: bold;
+}
+
+.confirm-btn {
+  height: 45px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+  font-size: 19px;
+}
+
+.confirm-btn:hover {
+  opacity: 0.7;
+}
+
+.orange-btn {
+  background-color: #f76140;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+/* room#search */
+.search-form-container {
+  background-color: #fff;
+  padding: 10px 20px;
+}
+
+.search-form {
+  display: flex;
+  justify-content: center;
+}
+
+.search-form-field {
+  width: 50%;
+}
+
+.search-form-field input:first-of-type {
+  margin-bottom: 5px;
+}
+
+
+.search-btn {
+  width: 110px;
+  margin-left: 20px;
+}
+
+.search-results-list-wrapper {
+  padding: 30px;
+}
+
+.count-results {
+  font-size: 20px;
+}
+
+.search-results-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 30px;
+  padding: 0;
+  margin: 0;
+}
+
+@media screen and (max-width: 1100px) {
+  .search-results-list {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 766px) {
+  .search-results-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .search-results-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+.search-result {
+  background-color: #eedccb;
+  border-radius: 26px;
+}
+
+.search-result-img {
+  width: 100%;
+  height: 184px;
+  border-radius: 26px 26px 0 0;
+  object-fit: cover;
+}
+
+.search-result-container {
+  padding: 0 20px 3px;
+}
+
+.search-result-name {
+  font-size: 22px;
+  color: #0000aed2;
+  border-bottom: 1px solid #0000aed2;
+}
+
+.overflow {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.red {
+  color: #f76140;
+  font-size: 23px;
+  text-align: right;
+}

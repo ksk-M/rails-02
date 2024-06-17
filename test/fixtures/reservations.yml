@@ -1,0 +1,13 @@
+one:
+  check_in: 2024-06-12
+  check_out: 2024-06-12
+  number_of_people: 1
+  user_id: 1
+  room_id: 1
+
+two:
+  check_in: 2024-06-12
+  check_out: 2024-06-12
+  number_of_people: 1
+  user_id: 1
+  room_id: 1

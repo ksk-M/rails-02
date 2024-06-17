@@ -1,0 +1,7 @@
+<% if obj.errors.any? %>
+  <% obj.errors.full_messages.each do |message| %>
+    <ul class="reservation-error">
+      <li><%= message %></li>
+    </ul>
+  <% end %>
+<% end %>
